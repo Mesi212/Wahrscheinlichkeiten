@@ -97,10 +97,10 @@ def draw():
             textAlign(LEFT, CENTER)
             text("Wuerfel " + str(i + 1), 20, 180 + i * 50)
             fill(255)
-            for j in range(0, button1):
-                empty_dice(130 + i * 50, 190 + j * 50)
+            for j in range(0, 6):
+                empty_dice(130 + j * 50, 190 + i * 50)
 
-        for k in range(0, button1):
+        for k in range(0, 6):
             global number
             number = k + 1
             for l in range(0, button1):

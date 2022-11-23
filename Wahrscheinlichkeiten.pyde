@@ -1,3 +1,5 @@
+
+mode = "eingabe dices"
 dices = 0 # Wie viele Würfel werden geworfen?
 throw_type = 0 # Zufallswurf oder erwartetes Ergebnis?
 
@@ -32,39 +34,43 @@ def draw():
         fill(0)
         text(1 + i, 50 + i * 40, 60)
     
-    if (mouseButton == LEFT) and (30 < mouseX < 70) and (40 < mouseY < 80):
-        global dices
-        fill(255, 0, 0)
-        empty_dice(50, 60)
-        dices = 1
-        
-    elif (mouseButton == LEFT) and (70 < mouseX < 110) and (40 < mouseY < 80):
-        fill(255, 0, 0)
-        empty_dice(90, 60)
-        dices = 2
-
-    elif (mouseButton == LEFT) and (110 < mouseX < 150) and (40 < mouseY < 80):
-        fill(255, 0, 0)
-        empty_dice(130, 60)
-        dices = 3
-
-    elif (mouseButton == LEFT) and (150 < mouseX < 190) and (40 < mouseY < 80):
-        fill(255, 0, 0)
-        empty_dice(170, 60)
-        dices = 4
-    
-    elif (mouseButton == LEFT) and (190 < mouseX < 230) and (40 < mouseY < 80):
-        fill(255, 0, 0)
-        empty_dice(210, 60)
-        dices = 5
-        
-    elif (mouseButton == LEFT) and (230 < mouseX < 270) and (40 < mouseY < 80):
-        fill(255, 0, 0)
-        empty_dice(250, 60)
-        dices = 6
-        
-    else:
-        noFill()
+    if mode == "eingabe dices":
+        if (mouseButton == LEFT) and (30 < mouseX < 70) and (40 < mouseY < 80):
+            global dices
+            fill(255, 0, 0)
+            empty_dice(50, 60)
+            dices = 1
+            mode = "eingabe throw_type"
+            
+        elif (mouseButton == LEFT) and (70 < mouseX < 110) and (40 < mouseY < 80):
+            fill(255, 0, 0)
+            empty_dice(90, 60)
+            dices = 2
+            mode = "eingabe throw_type"
+            
+        elif (mouseButton == LEFT) and (110 < mouseX < 150) and (40 < mouseY < 80):
+            fill(255, 0, 0)
+            empty_dice(130, 60)
+            dices = 3
+            mode = "eingabe throw_type"
+            
+        elif (mouseButton == LEFT) and (150 < mouseX < 190) and (40 < mouseY < 80):
+            fill(255, 0, 0)
+            empty_dice(170, 60)
+            dices = 4
+            mode = "eingabe throw_type"
+            
+        elif (mouseButton == LEFT) and (190 < mouseX < 230) and (40 < mouseY < 80):
+            fill(255, 0, 0)
+            empty_dice(210, 60)
+            dices = 5
+            mode = "eingabe throw_type"
+            
+        elif (mouseButton == LEFT) and (230 < mouseX < 270) and (40 < mouseY < 80):
+            fill(255, 0, 0)
+            empty_dice(250, 60)
+            dices = 6
+            mode = "eingabe throw_type"
     
     print(dices) # zur Kontrolle
     

@@ -1,6 +1,5 @@
 # Zufalls-Nummer für Würfel
 # random_number = round(random(1, 6))
-number = 0 # Punktzahl auf Würfel
 button1 = 0 # Wie viele Würfel werden geworfen?
 button2 = 0 # Zufallswurf oder erwartetes Ergebnis?
 
@@ -101,10 +100,8 @@ def draw():
                 empty_dice(130 + j * 50, 190 + i * 50)
 
         for k in range(0, 6):
-            global number
-            number = k + 1
             for l in range(0, button1):
-                dice_number(130 + (k * 50), 190 + l * 50)
+                dice_number(130 + (k * 50), 190 + l * 50, k + 1)
                 
     elif button2 == 1:
         for i in range(0, button1):
@@ -113,8 +110,7 @@ def draw():
             text("Zufall", 20, 180)
             fill(255)
             empty_dice(130 + i * 50, 190)
-            number = round(random(1, 6))
-            dice_number(130 + i * 50, 190)
+            dice_number(130 + i * 50, 190, round(random(1, 6)))
             noLoop()
             
     else:
@@ -124,7 +120,7 @@ def empty_dice(xPos, yPos):
     rectMode(CENTER)
     square(xPos, yPos, 40)
     
-def dice_number(xPos, yPos):
+def dice_number(xPos, yPos, number):
     fill(0)
     if number == 1:
         circle(xPos, yPos, 5)

@@ -1,7 +1,5 @@
-# Zufalls-Nummer für Würfel
-# random_number = round(random(1, 6))
-button1 = 0 # Wie viele Würfel werden geworfen?
-button2 = 0 # Zufallswurf oder erwartetes Ergebnis?
+dices = 0 # Wie viele Würfel werden geworfen?
+throw_type = 0 # Zufallswurf oder erwartetes Ergebnis?
 
 def setup():
     size(800, 900)
@@ -35,63 +33,63 @@ def draw():
         text(1 + i, 50 + i * 40, 60)
     
     if (mouseButton == LEFT) and (30 < mouseX < 70) and (40 < mouseY < 80):
-        global button1
+        global dices
         fill(255, 0, 0)
         empty_dice(50, 60)
-        button1 = 1
+        dices = 1
         
     elif (mouseButton == LEFT) and (70 < mouseX < 110) and (40 < mouseY < 80):
         fill(255, 0, 0)
         empty_dice(90, 60)
-        button1 = 2
+        dices = 2
 
     elif (mouseButton == LEFT) and (110 < mouseX < 150) and (40 < mouseY < 80):
         fill(255, 0, 0)
         empty_dice(130, 60)
-        button1 = 3
+        dices = 3
 
     elif (mouseButton == LEFT) and (150 < mouseX < 190) and (40 < mouseY < 80):
         fill(255, 0, 0)
         empty_dice(170, 60)
-        button1 = 4
+        dices = 4
     
     elif (mouseButton == LEFT) and (190 < mouseX < 230) and (40 < mouseY < 80):
         fill(255, 0, 0)
         empty_dice(210, 60)
-        button1 = 5
+        dices = 5
         
     elif (mouseButton == LEFT) and (230 < mouseX < 270) and (40 < mouseY < 80):
         fill(255, 0, 0)
         empty_dice(250, 60)
-        button1 = 6
+        dices = 6
         
     else:
         noFill()
     
-    print(button1) # zur Kontrolle
+    print(dices) # zur Kontrolle
     
     textAlign(CENTER, CENTER)
     text("Zufall", 120, 140)
     text("erwartetes Ergebnis", 300, 140)
     
     if (mouseButton == LEFT) and (30 < mouseX < 210) and (120 < mouseY < 160):
-        global button2
+        global throw_type
         fill(255, 0, 0)
         rect(120, 140, 180, 40)
-        button2 = 1
+        throw_type = 1
         
     elif (mouseButton == LEFT) and (210 < mouseX < 390) and (120 < mouseY < 160):
         fill(255, 0, 0)
         rect(300, 140, 180, 40)
-        button2 = 2
+        throw_type = 2
         
     else:
         noFill()
     
-    print(button2) # zur Kontrolle
+    print(throw_type) # zur Kontrolle
     
-    if button2 == 2:
-        for i in range(0, button1):
+    if throw_type == 2:
+        for i in range(0, dices):
             fill(0)
             textAlign(LEFT, CENTER)
             text("Wuerfel " + str(i + 1), 20, 180 + i * 50)
@@ -100,11 +98,11 @@ def draw():
                 empty_dice(130 + j * 50, 190 + i * 50)
 
         for k in range(0, 6):
-            for l in range(0, button1):
+            for l in range(0, dices):
                 dice_number(130 + (k * 50), 190 + l * 50, k + 1)
                 
-    elif button2 == 1:
-        for i in range(0, button1):
+    elif throw_type == 1:
+        for i in range(0, dices):
             fill(0)
             textAlign(LEFT, CENTER)
             text("Zufall", 20, 180)

@@ -98,7 +98,7 @@ def draw():
         for i in range(0, dices):
             fill(0)
             textAlign(LEFT, CENTER)
-            text("Wuerfel " + str(i + 1), 20, 180 + i * 50)
+            text(u"Würfel " + str(i + 1), 20, 180 + i * 50)
             fill(255)
             for j in range(0, 6):
                 empty_dice(130 + j * 50, 190 + i * 50)

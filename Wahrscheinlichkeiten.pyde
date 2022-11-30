@@ -11,7 +11,7 @@ def setup():
 
     # erste Frage
     textAlign(LEFT, CENTER)
-    text("Wie viele Wuerfel wirfst du?", 20, 20)
+    text(u"Wie viele Würfel wirfst du?", 20, 20) # u vor dem String, damit ä, ö, ü angezeigt werden
     
     # Buttons ohne Inhalt
     for i in range(0, 6):
@@ -20,7 +20,7 @@ def setup():
         
     # zweite Frage
     textAlign(LEFT, CENTER)
-    text("Zufaelliges Wuerfeln oder erwartetes Ergebnis?", 20, 100)
+    text(u"Zufälliges Würfeln oder erwartetes Ergebnis?", 20, 100)
     
     # Buttons ohne Inhalt
     rect(120, 140, 180, 40)

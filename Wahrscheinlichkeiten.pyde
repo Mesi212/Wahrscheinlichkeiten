@@ -1,4 +1,3 @@
-
 mode = "eingabe dices"
 dices = 0 # Wie viele Würfel werden geworfen?
 throw_type = 0 # Zufallswurf oder erwartetes Ergebnis?
@@ -34,6 +33,7 @@ def draw():
         fill(0)
         text(1 + i, 50 + i * 40, 60)
     
+    global mode
     if mode == "eingabe dices":
         if (mouseButton == LEFT) and (30 < mouseX < 70) and (40 < mouseY < 80):
             global dices

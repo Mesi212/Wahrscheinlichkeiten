@@ -1,9 +1,9 @@
-# leerer Würfel
+# leerer Wuerfel
 def empty_dice(xPos, yPos):
     rectMode(CENTER)
     square(xPos, yPos, 40)
   
-# Würfelpunkte für jede Zahl von 1 bis 6
+# Wuerfelpunkte fuer jede Zahl von 1 bis 6
 def dice_number(xPos, yPos, number):
     fill(0)
     if number == 1:

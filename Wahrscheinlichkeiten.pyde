@@ -128,7 +128,7 @@ def draw():
         elif throw_type == 1:
             for i in range(0, dices):
                 random_dice = round(random(1, 6))
-                zahlen.append(random_dice)
+                zahlen.append(int(random_dice)) #int vor (random_dice), damit die Zahlen als ganze Zahlen ohne Nachkommastelle angezeigt werden
                 fill(0)
                 textAlign(LEFT, CENTER)
                 text("Zufall", 20, 180)
@@ -468,19 +468,23 @@ def draw():
 # Vierte Eingabe Mit oder ohne Reihenfolge------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     textAlign(CENTER, CENTER)
     text("mit Reihenfolge", 120, 500)
-    text(u"ohne Reihenfolge", 300, 500)
+    text("ohne Reihenfolge", 300, 500)
     
     if mode == "eingabe order": # nur in diesem Modus kann Reihenfolge gewählt werden
         if (mouseButton == LEFT) and (30 < mouseX < 210) and (480 < mouseY < 520):
             global throw_type
             fill(255, 0, 0)
             rect(120, 500, 180, 40)
+            fill(0, 0, 0)
+            text("mit Reihenfolge", 120, 500) #damit nach dem drücken des Buttons immernoch "mit Reihenfolge" steht
             order_type = 1
             mode = "show result"
             
         elif (mouseButton == LEFT) and (210 < mouseX < 390) and (480 < mouseY < 520):
             fill(255, 0, 0)
             rect(300, 500, 180, 40)
+            fill(0, 0, 0)
+            text("ohne Reihenfolge", 300, 500)
             order_type = 2
             mode = "show result"
             
@@ -508,5 +512,9 @@ def draw():
         #text(str(combinations), 335, 555)
         #text("Die Wahrscheinlichkeit ist...\n=" + str(1 * combinations) + "/" + str(6 ** dices) + "\nVergiss hier nicht zu kürzen!", 20, 610)
         
+    #sortieren der gewürfelten Zahlen in der Liste, damit man sie mit den Möglichkeiten in der Exceltabelle abgleichen kann  
+    zahlen.sort()
+    
     print(zahlen)
+
     

@@ -516,5 +516,21 @@ def draw():
     zahlen.sort()
     
     print(zahlen)
+    
+    lst = [[1], [2]]
+
+    if zahlen in lst:
+        print("exist")
+    else:
+        print("not exist")
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     

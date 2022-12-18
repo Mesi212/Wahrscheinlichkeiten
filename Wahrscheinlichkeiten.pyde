@@ -1,6 +1,5 @@
 from dice import empty_dice
 from dice import dice_number
-from choose_dice import choose_dice
 
 # Modus "mode" ermöglicht einen geführten Durchgang durch das Programm, indem die Buttons nur im richtigen Modus angeklickt werden können
 mode = "eingabe dices"
@@ -16,7 +15,7 @@ zahlen = []
 
 
 def setup():
-    size(800, 700)
+    size(620, 700)
     background(255)
     textSize(20)
     fill(0)
@@ -623,4 +622,4 @@ def draw():
                 circle(12 + i * 45, 580, 5)
             circle(12 + dices * 45, 580, 5)
             text(q, 20 + dices * 45, 575)    
-            text("Die Wahrscheinlichkeit ist...\n= " + str(q) + "/" + str(6 ** dices) + " = 1/" + str(6 ** dices / q), 20, 625)
+            text(u"Die Wahrscheinlichkeit beträgt...\n= " + str(q) + "/" + str(6 ** dices) + u" ≈ 1/" + str(6 ** dices / q), 20, 625)

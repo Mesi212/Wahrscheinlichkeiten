@@ -3,7 +3,6 @@ from dice import dice_number
 
 # Modus "mode" ermöglicht einen geführten Durchgang durch das Programm, indem die Buttons nur im richtigen Modus angeklickt werden können
 mode = "eingabe dices"
-
 # Wie viele Würfel werden geworfen? Solange kein kein Button angewählt wird, werden 0 Würfel geworfen.
 dices = 0
 # Möchte man ein zufälliges Würfelergebnis oder selbst auswählen?
@@ -52,58 +51,54 @@ def draw():
 # Erste Eingabe: Wähle die Würfel aus? ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     global mode
     if mode == "eingabe dices": # nur in diesem Modus kann die Anzahl Würfel gewählt werden
+        fill(255, 0, 0)
         if (mouseButton == LEFT) and (30 < mouseX < 70) and (40 < mouseY < 80):
             global dices
-            fill(255, 0, 0)
             empty_dice(50, 60)
             dices = 1
             mode = "eingabe throw_type"
             
         elif (mouseButton == LEFT) and (70 < mouseX < 110) and (40 < mouseY < 80):
-            fill(255, 0, 0)
             empty_dice(90, 60)
             dices = 2
             mode = "eingabe throw_type"
             
         elif (mouseButton == LEFT) and (110 < mouseX < 150) and (40 < mouseY < 80):
-            fill(255, 0, 0)
             empty_dice(130, 60)
             dices = 3
             mode = "eingabe throw_type"
             
         elif (mouseButton == LEFT) and (150 < mouseX < 190) and (40 < mouseY < 80):
-            fill(255, 0, 0)
             empty_dice(170, 60)
             dices = 4
             mode = "eingabe throw_type"
             
         elif (mouseButton == LEFT) and (190 < mouseX < 230) and (40 < mouseY < 80):
-            fill(255, 0, 0)
             empty_dice(210, 60)
             dices = 5
             mode = "eingabe throw_type"
             
         elif (mouseButton == LEFT) and (230 < mouseX < 270) and (40 < mouseY < 80):
-            fill(255, 0, 0)
             empty_dice(250, 60)
             dices = 6
             mode = "eingabe throw_type"
 
 # Zweite Eingabe: Möchtest du die Würfelzahlen selbst auswählen?------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------        
     textAlign(CENTER, CENTER)
+    fill(0)
     text("Zufall", 120, 140)
     text(u"selbst auswählen", 300, 140)
     
     if mode == "eingabe throw_type": # nur in diesem Modus kann der "throw type" gewählt werden
+        fill(255, 0, 0)
         if (mouseButton == LEFT) and (30 < mouseX < 210) and (120 < mouseY < 160):
             global throw_type
-            fill(255, 0, 0)
             rect(120, 140, 180, 40)
             throw_type = 1
             mode = "eingabe order"
             
         elif (mouseButton == LEFT) and (210 < mouseX < 390) and (120 < mouseY < 160):
-            fill(255, 0, 0)
+
             rect(300, 140, 180, 40)
             throw_type = 2
             mode = "eingabe choose dice 1"
@@ -144,9 +139,9 @@ def draw():
     shift_dice = 50 # Einzug in x- und y-Richtung
     # nur in diesem Modus und mit "selbst auswählen" können selbst Würfel gewählt werden
     if mode == "eingabe choose dice 1" and throw_type == 2: 
+        fill(255, 0, 0)
         if (mouseButton == LEFT) and ((choose_dice_x - 20) < mouseX < (choose_dice_x + 20)) and ((choose_dice_y - 20) < mouseY < (choose_dice_y + 20)):
             global dices
-            fill(255, 0, 0)
             empty_dice(choose_dice_x, choose_dice_y)
             fill(0)
             dice_number(choose_dice_x, choose_dice_y, 1)
@@ -154,7 +149,6 @@ def draw():
             mode = "eingabe choose dice 2"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 1) < mouseX < (choose_dice_x + 20 + shift_dice * 1)) and ((choose_dice_y - 20) < mouseY < (choose_dice_y + 20)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 1), choose_dice_y)
             fill(0)
             dice_number((choose_dice_x + shift_dice * 1), choose_dice_y, 2)
@@ -162,7 +156,6 @@ def draw():
             mode = "eingabe choose dice 2"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 2) < mouseX < (choose_dice_x + 20 + shift_dice * 2)) and ((choose_dice_y - 20) < mouseY < (choose_dice_y + 20)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 2), choose_dice_y)
             fill(0)
             dice_number((choose_dice_x + shift_dice * 2), choose_dice_y, 3)
@@ -170,7 +163,6 @@ def draw():
             mode = "eingabe choose dice 2"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 3) < mouseX < (choose_dice_x + 20 + shift_dice * 3)) and ((choose_dice_y - 20) < mouseY < (choose_dice_y + 20)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 3), choose_dice_y)
             fill(0)
             dice_number((choose_dice_x + shift_dice * 3), choose_dice_y, 4)
@@ -178,7 +170,6 @@ def draw():
             mode = "eingabe choose dice 2"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 4) < mouseX < (choose_dice_x + 20 + shift_dice * 4)) and ((choose_dice_y - 20) < mouseY < (choose_dice_y + 20)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 4), choose_dice_y)
             fill(0)
             dice_number((choose_dice_x + shift_dice * 4), choose_dice_y, 5)
@@ -186,7 +177,6 @@ def draw():
             mode = "eingabe choose dice 2"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 5) < mouseX < (choose_dice_x + 20 + shift_dice * 5)) and ((choose_dice_y - 20) < mouseY < (choose_dice_y + 20)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 5), choose_dice_y)
             fill(0)
             dice_number((choose_dice_x + shift_dice * 5), choose_dice_y, 6)
@@ -195,9 +185,9 @@ def draw():
             
     # nur in diesem Modus, mit "selbst auswählen" und mind. 2 geworfenen Würfeln können diese Buttons gewählt werden
     if mode == "eingabe choose dice 2" and dices >= 2:
+        fill(255, 0, 0)
         if (mouseButton == LEFT) and ((choose_dice_x - 20) < mouseX < (choose_dice_x + 20)) and ((choose_dice_y - 20 + shift_dice * 1) < mouseY < (choose_dice_y + 20 + shift_dice * 1)):
             global dices
-            fill(255, 0, 0)
             empty_dice(choose_dice_x, 240)
             fill(0)
             dice_number(choose_dice_x, 240, 1)
@@ -205,7 +195,6 @@ def draw():
             mode = "eingabe choose dice 3"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 1) < mouseX < (choose_dice_x + 20 + shift_dice * 1)) and ((choose_dice_y - 20 + shift_dice * 1) < mouseY < (choose_dice_y + 20 + shift_dice * 1)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 1), (choose_dice_y + shift_dice * 1))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 1), (choose_dice_y + shift_dice * 1), 2)
@@ -213,7 +202,6 @@ def draw():
             mode = "eingabe choose dice 3"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 2) < mouseX < (choose_dice_x + 20 + shift_dice * 2)) and ((choose_dice_y - 20 + shift_dice * 1) < mouseY < (choose_dice_y + 20 + shift_dice * 1)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 2), (choose_dice_y + shift_dice * 1))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 2), (choose_dice_y + shift_dice * 1), 3)
@@ -221,7 +209,6 @@ def draw():
             mode = "eingabe choose dice 3"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 3) < mouseX < (choose_dice_x + 20 + shift_dice * 3)) and ((choose_dice_y - 20 + shift_dice * 1) < mouseY < (choose_dice_y + 20 + shift_dice * 1)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 3), (choose_dice_y + shift_dice * 1))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 3), (choose_dice_y + shift_dice * 1), 4)
@@ -229,7 +216,6 @@ def draw():
             mode = "eingabe choose dice 3"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 4) < mouseX < (choose_dice_x + 20 + shift_dice * 4)) and ((choose_dice_y - 20 + shift_dice * 1) < mouseY < (choose_dice_y + 20 + shift_dice * 1)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 4), (choose_dice_y + shift_dice * 1))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 4), (choose_dice_y + shift_dice * 1), 5)
@@ -237,7 +223,6 @@ def draw():
             mode = "eingabe choose dice 3"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 5) < mouseX < (choose_dice_x + 20 + shift_dice * 5)) and ((choose_dice_y - 20 + shift_dice * 1) < mouseY < (choose_dice_y + 20 + shift_dice * 1)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 5), (choose_dice_y + shift_dice * 1))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 5), (choose_dice_y + shift_dice * 1), 6)
@@ -245,10 +230,10 @@ def draw():
             mode = "eingabe choose dice 3"
 
     # nur in diesem Modus, mit "selbst auswählen" und mind. 3 geworfenen Würfeln können diese Buttons gewählt werden
-    if mode == "eingabe choose dice 3" and dices >= 3: 
+    if mode == "eingabe choose dice 3" and dices >= 3:
+        fill(255, 0, 0)
         if (mouseButton == LEFT) and ((choose_dice_x - 20) < mouseX < (choose_dice_x + 20)) and ((choose_dice_y - 20 + shift_dice * 2) < mouseY < (choose_dice_y + 20 + shift_dice * 2)):
             global dices
-            fill(255, 0, 0)
             empty_dice(choose_dice_x, (choose_dice_y + shift_dice * 2))
             fill(0)
             dice_number(choose_dice_x, (choose_dice_y + shift_dice * 2), 1)
@@ -256,7 +241,6 @@ def draw():
             mode = "eingabe choose dice 4"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 1) < mouseX < (choose_dice_x + 20 + shift_dice * 1)) and ((choose_dice_y - 20 + shift_dice * 2) < mouseY < (choose_dice_y + 20 + shift_dice * 2)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 1), (choose_dice_y + shift_dice * 2))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 1), (choose_dice_y + shift_dice * 2), 2)
@@ -264,7 +248,6 @@ def draw():
             mode = "eingabe choose dice 4"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 2) < mouseX < (choose_dice_x + 20 + shift_dice * 2)) and ((choose_dice_y - 20 + shift_dice * 2) < mouseY < (choose_dice_y + 20 + shift_dice * 2)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 2), (choose_dice_y + shift_dice * 2))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 2), (choose_dice_y + shift_dice * 2), 3)
@@ -272,7 +255,6 @@ def draw():
             mode = "eingabe choose dice 4"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 3) < mouseX < (choose_dice_x + 20 + shift_dice * 3)) and ((choose_dice_y - 20 + shift_dice * 2) < mouseY < (choose_dice_y + 20 + shift_dice * 2)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 3), (choose_dice_y + shift_dice * 2))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 3), (choose_dice_y + shift_dice * 2), 4)
@@ -280,7 +262,6 @@ def draw():
             mode = "eingabe choose dice 4"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 4) < mouseX < (choose_dice_x + 20 + shift_dice * 4)) and ((choose_dice_y - 20 + shift_dice * 2) < mouseY < (choose_dice_y + 20 + shift_dice * 2)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 4), (choose_dice_y + shift_dice * 2))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 4), (choose_dice_y + shift_dice * 2), 5)
@@ -288,7 +269,6 @@ def draw():
             mode = "eingabe choose dice 4"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 5) < mouseX < (choose_dice_x + 20 + shift_dice * 5)) and ((choose_dice_y - 20 + shift_dice * 2) < mouseY < (choose_dice_y + 20 + shift_dice * 2)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 5), (choose_dice_y + shift_dice * 2))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 5), (choose_dice_y + shift_dice * 2), 6)
@@ -297,9 +277,9 @@ def draw():
 
     # nur in diesem Modus, mit "selbst auswählen" und mind. 4 geworfenen Würfeln können diese Buttons gewählt werden
     if mode == "eingabe choose dice 4" and dices >= 4:
+        fill(255, 0, 0)
         if (mouseButton == LEFT) and ((choose_dice_x - 20) < mouseX < (choose_dice_x + 20)) and ((choose_dice_y - 20 + shift_dice * 3) < mouseY < (choose_dice_y + 20 + shift_dice * 3)):
             global dices
-            fill(255, 0, 0)
             empty_dice(choose_dice_x, (choose_dice_y + shift_dice * 3))
             fill(0)
             dice_number(choose_dice_x, (choose_dice_y + shift_dice * 3), 1)
@@ -307,7 +287,6 @@ def draw():
             mode = "eingabe choose dice 5"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 1) < mouseX < (choose_dice_x + 20 + shift_dice * 1)) and ((choose_dice_y - 20 + shift_dice * 3) < mouseY < (choose_dice_y + 20 + shift_dice * 3)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 1), (choose_dice_y + shift_dice * 3))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 1), (choose_dice_y + shift_dice * 3), 2)
@@ -315,7 +294,6 @@ def draw():
             mode = "eingabe choose dice 5"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 2) < mouseX < (choose_dice_x + 20 + shift_dice * 2)) and ((choose_dice_y - 20 + shift_dice * 3) < mouseY < (choose_dice_y + 20 + shift_dice * 3)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 2), (choose_dice_y + shift_dice * 3))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 2), (choose_dice_y + shift_dice * 3), 3)
@@ -323,7 +301,6 @@ def draw():
             mode = "eingabe choose dice 5"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 3) < mouseX < (choose_dice_x + 20 + shift_dice * 3)) and ((choose_dice_y - 20 + shift_dice * 3) < mouseY < (choose_dice_y + 20 + shift_dice * 3)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 3), (choose_dice_y + shift_dice * 3))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 3), (choose_dice_y + shift_dice * 3), 4)
@@ -331,7 +308,6 @@ def draw():
             mode = "eingabe choose dice 5"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 4) < mouseX < (choose_dice_x + 20 + shift_dice * 4)) and ((choose_dice_y - 20 + shift_dice * 3) < mouseY < (choose_dice_y + 20 + shift_dice * 3)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 4), (choose_dice_y + shift_dice * 3))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 4), (choose_dice_y + shift_dice * 3), 5)
@@ -339,7 +315,6 @@ def draw():
             mode = "eingabe choose dice 5"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 5) < mouseX < (choose_dice_x + 20 + shift_dice * 5)) and ((choose_dice_y - 20 + shift_dice * 3) < mouseY < (choose_dice_y + 20 + shift_dice * 3)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 5), (choose_dice_y + shift_dice * 3))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 5), (choose_dice_y + shift_dice * 3), 6)
@@ -348,9 +323,9 @@ def draw():
             
     # nur in diesem Modus, mit "selbst auswählen" und mind. 5 geworfenen Würfeln können diese Buttons gewählt werden
     if mode == "eingabe choose dice 5" and dices >= 5:
+        fill(255, 0, 0)
         if (mouseButton == LEFT) and ((choose_dice_x - 20) < mouseX < (choose_dice_x + 20)) and ((choose_dice_y - 20 + shift_dice * 4) < mouseY < (choose_dice_y + 20 + shift_dice * 4)):
             global dices
-            fill(255, 0, 0)
             empty_dice(choose_dice_x, (choose_dice_y + shift_dice * 4))
             fill(0)
             dice_number(choose_dice_x, (choose_dice_y + shift_dice * 4), 1)
@@ -358,7 +333,6 @@ def draw():
             mode = "eingabe choose dice 6"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 1) < mouseX < (choose_dice_x + 20 + shift_dice * 1)) and ((choose_dice_y - 20 + shift_dice * 4) < mouseY < (choose_dice_y + 20 + shift_dice * 4)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 1), (choose_dice_y + shift_dice * 4))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 1), (choose_dice_y + shift_dice * 4), 2)
@@ -366,7 +340,6 @@ def draw():
             mode = "eingabe choose dice 6"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 2) < mouseX < (choose_dice_x + 20 + shift_dice * 2)) and ((choose_dice_y - 20 + shift_dice * 4) < mouseY < (choose_dice_y + 20 + shift_dice * 4)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 2), (choose_dice_y + shift_dice * 4))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 2), (choose_dice_y + shift_dice * 4), 3)
@@ -374,7 +347,6 @@ def draw():
             mode = "eingabe choose dice 6"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 3) < mouseX < (choose_dice_x + 20 + shift_dice * 3)) and ((choose_dice_y - 20 + shift_dice * 4) < mouseY < (choose_dice_y + 20 + shift_dice * 4)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 3), (choose_dice_y + shift_dice * 4))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 3), (choose_dice_y + shift_dice * 4), 4)
@@ -382,7 +354,6 @@ def draw():
             mode = "eingabe choose dice 6"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 4) < mouseX < (choose_dice_x + 20 + shift_dice * 4)) and ((choose_dice_y - 20 + shift_dice * 4) < mouseY < (choose_dice_y + 20 + shift_dice * 4)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 4), (choose_dice_y + shift_dice * 4))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 4), (choose_dice_y + shift_dice * 4), 5)
@@ -390,7 +361,6 @@ def draw():
             mode = "eingabe choose dice 6"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 5) < mouseX < (choose_dice_x + 20 + shift_dice * 5)) and ((choose_dice_y - 20 + shift_dice * 4) < mouseY < (choose_dice_y + 20 + shift_dice * 4)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 5), (choose_dice_y + shift_dice * 4))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 5), (choose_dice_y + shift_dice * 4), 6)
@@ -399,9 +369,9 @@ def draw():
                 
     # nur in diesem Modus, mit "selbst auswählen" und 6 geworfenen Würfeln können diese Buttons gewählt werden
     if mode == "eingabe choose dice 6" and dices == 6:
+        fill(255, 0, 0)
         if (mouseButton == LEFT) and ((choose_dice_x - 20) < mouseX < (choose_dice_x + 20)) and ((choose_dice_y - 20 + shift_dice * 5) < mouseY < (choose_dice_y + 20 + shift_dice * 5)):
             global dices
-            fill(255, 0, 0)
             empty_dice(choose_dice_x, (choose_dice_y + shift_dice * 5))
             fill(0)
             dice_number(choose_dice_x, (choose_dice_y + shift_dice * 5), 1)
@@ -409,7 +379,6 @@ def draw():
             mode = "eingabe order"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 1) < mouseX < (choose_dice_x + 20 + shift_dice * 1)) and ((choose_dice_y - 20 + shift_dice * 5) < mouseY < (choose_dice_y + 20 + shift_dice * 5)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 1), (choose_dice_y + shift_dice * 5))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 1), (choose_dice_y + shift_dice * 5), 2)
@@ -417,7 +386,6 @@ def draw():
             mode = "eingabe order"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 2) < mouseX < (choose_dice_x + 20 + shift_dice * 2)) and ((choose_dice_y - 20 + shift_dice * 5) < mouseY < (choose_dice_y + 20 + shift_dice * 5)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 2), (choose_dice_y + shift_dice * 5))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 2), (choose_dice_y + shift_dice * 5), 3)
@@ -425,7 +393,6 @@ def draw():
             mode = "eingabe order"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 3) < mouseX < (choose_dice_x + 20 + shift_dice * 3)) and ((choose_dice_y - 20 + shift_dice * 5) < mouseY < (choose_dice_y + 20 + shift_dice * 5)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 3), (choose_dice_y + shift_dice * 5))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 3), (choose_dice_y + shift_dice * 5), 4)
@@ -433,7 +400,6 @@ def draw():
             mode = "eingabe order"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 4) < mouseX < (choose_dice_x + 20 + shift_dice * 4)) and ((choose_dice_y - 20 + shift_dice * 5) < mouseY < (choose_dice_y + 20 + shift_dice * 5)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 4), (choose_dice_y + shift_dice * 5))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 4), (choose_dice_y + shift_dice * 5), 5)
@@ -441,7 +407,6 @@ def draw():
             mode = "eingabe order"
             
         elif (mouseButton == LEFT) and ((choose_dice_x - 20 + shift_dice * 5) < mouseX < (choose_dice_x + 20 + shift_dice * 5)) and ((choose_dice_y - 20 + shift_dice * 5) < mouseY < (choose_dice_y + 20 + shift_dice * 5)):
-            fill(255, 0, 0)
             empty_dice((choose_dice_x + shift_dice * 5), (choose_dice_y + shift_dice * 5))
             fill(0)
             dice_number((choose_dice_x + shift_dice * 5), (choose_dice_y + shift_dice * 5), 6)
@@ -466,23 +431,23 @@ def draw():
     
 # Vierte Eingabe Mit oder ohne Reihenfolge------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     textAlign(CENTER, CENTER)
+    fill(0)
     text("mit Reihenfolge", 120, 500)
     text("ohne Reihenfolge", 300, 500)
     
     if mode == "eingabe order": # nur in diesem Modus kann Reihenfolge gewählt werden
+        fill(255, 0, 0)
         if (mouseButton == LEFT) and (30 < mouseX < 210) and (480 < mouseY < 520):
             global throw_type
-            fill(255, 0, 0)
             rect(120, 500, 180, 40)
-            fill(0, 0, 0)
+            fill(0)
             text("mit Reihenfolge", 120, 500) #damit nach dem drücken des Buttons immernoch "mit Reihenfolge" steht
             order_type = 1
             mode = "show result"
             
         elif (mouseButton == LEFT) and (210 < mouseX < 390) and (480 < mouseY < 520):
-            fill(255, 0, 0)
             rect(300, 500, 180, 40)
-            fill(0, 0, 0)
+            fill(0)
             text("ohne Reihenfolge", 300, 500)
             order_type = 2
             mode = "show result"
@@ -543,8 +508,6 @@ def draw():
     zweiGzweiGzweiV = [[1, 1, 2, 2, 3, 4], [1, 1, 2, 2, 3, 5], [1, 1, 2, 2, 3, 6], [1, 1, 2, 2, 4, 5], [1, 1, 2, 2, 4, 6], [1, 1, 2, 2, 5, 6], [1, 1, 2, 3, 3, 4], [1, 1, 2, 3, 3, 5], [1, 1, 2, 3, 3, 6], [1, 1, 3, 3, 4, 5], [1, 1, 3, 3, 4, 6], [1, 1, 3, 3, 5, 6], [1, 1, 2, 3, 4, 4], [1, 1, 2, 4, 4, 5], [1, 1, 2, 4, 4, 6], [1, 1, 3, 4, 4, 5], [1, 1, 3, 4, 4, 6], [1, 1, 4, 4, 5, 6], [1, 1, 2, 3, 5, 5], [1, 1, 2, 4, 5, 5], [1, 1, 2, 5, 5, 6], [1, 1, 3, 4, 5, 5], [1, 1, 3, 5, 5, 6], [1, 1, 4, 5, 5, 6], [1, 1, 2, 3, 6, 6], [1, 1, 2, 4, 6, 6], [1, 1, 2, 5, 6, 6], [1, 1, 3, 4, 6, 6], [1, 1, 3, 5, 6, 6], [1, 1, 4, 5, 6, 6], [1, 2, 2, 3, 3, 4], [1, 2, 2, 3, 3, 5], [1, 2, 2, 3, 3, 6], [2, 2, 3, 3, 4, 5], [2, 2, 3, 3, 4, 6], [2, 2, 3, 3, 5, 6], [1, 2, 2, 3, 4, 4], [1, 2, 2, 4, 4, 5], [1, 2, 2, 4, 4, 6], [2, 2, 3, 4, 4, 5], [2, 2, 3, 4, 4, 6], [2, 2, 4, 4, 5, 6], [1, 2, 2, 3, 5, 5], [1, 2, 2, 4, 5, 5], [1, 2, 2, 5, 5, 6], [2, 2, 3, 4, 5, 5], [2, 2, 3, 5, 5, 6], [2, 2, 4, 5, 5, 6], [1, 2, 2, 3, 6, 6], [1, 2, 2, 4, 6, 6], [1, 2, 2, 5, 6, 6], [2, 2, 3, 4, 6, 6], [2, 2, 3, 5, 6, 6], [2, 2, 4, 5, 6, 6], [1, 2, 3, 3, 4, 4], [1, 3, 3, 4, 4, 5], [1, 3, 3, 4, 4, 6], [2, 3, 3, 4, 4, 5], [2, 3, 3, 4, 4, 6], [3, 3, 4, 4, 5, 6], [1, 2, 3, 3, 5, 5], [1, 3, 3, 4, 5, 5], [1, 3, 3, 5, 5, 6], [2, 3, 3, 4, 5, 5], [2, 3, 3, 5, 5, 6], [3, 3, 4, 5, 5, 6], [1, 2, 3, 3, 6, 6], [1, 3, 3, 4, 6, 6], [1, 3, 3, 5, 6, 6], [2, 3, 3, 4, 6, 6], [2, 3, 3, 5, 6, 6], [3, 3, 4, 5, 6, 6], [1, 2, 4, 4, 5, 5], [1, 3, 4, 4, 5, 5], [1, 4, 4, 5, 5, 6], [2, 3, 4, 4, 5, 5], [2, 4, 4, 5, 5, 6], [3, 4, 4, 5, 5, 6], [1, 2, 4, 4, 6, 6], [1, 3, 4, 4, 6, 6], [1, 4, 4, 5, 6, 6], [2, 3, 4, 4, 6, 6], [2, 4, 4, 5, 6, 6], [3, 4, 4, 5, 6, 6], [1, 2, 5, 5, 6, 6], [1, 3, 5, 5, 6, 6], [1, 4, 5, 5, 6, 6], [2, 3, 5, 5, 6, 6], [2, 4, 5, 5, 6, 6], [3, 4, 5, 5, 6, 6]]
     zweiGzweiGzweiG = [[1, 1, 2, 2, 3, 3], [1, 1, 2, 2, 4, 4], [1, 1, 2, 2, 5, 5], [1, 1, 2, 2, 6, 6], [1, 1, 3, 3, 4, 4], [1, 1, 3, 3, 5, 5], [1, 1, 3, 3, 6, 6], [1, 1, 4, 4, 5, 5], [1, 1, 4, 4, 6, 6], [1, 1, 5, 5, 6, 6], [2, 2, 3, 3, 4, 4], [2, 2, 3, 3, 5, 5], [2, 2, 3, 3, 6, 6], [2, 2, 4, 4, 5, 5], [2, 2, 4, 4, 6, 6], [2, 2, 5, 5, 6, 6], [3, 3, 4, 4, 5, 5], [3, 3, 4, 4, 6, 6], [3, 3, 5, 5, 6, 6], [4, 4, 5, 5, 6, 6]]
     sechsV = [[1, 2, 3, 4, 5, 6]]
-
-
 
 
     if zahlen in einG:
@@ -612,7 +575,7 @@ def draw():
         q = 60
     
     
-    if mode == "show result" and order_type == 2:
+    if mode == "show result" and order_type == 2 and q > 1:
         for i in range(0, dices):
             fill(0)
             textAlign(LEFT, CENTER)
@@ -623,3 +586,15 @@ def draw():
             circle(12 + dices * 45, 580, 5)
             text(q, 20 + dices * 45, 575)    
             text(u"Die Wahrscheinlichkeit beträgt...\n= " + str(q) + "/" + str(6 ** dices) + u" ≈ 1/" + str(6 ** dices / q), 20, 625)
+    elif mode == "show result" and order_type == 2 and q <= 1:  #damit der Bruch nicht gekürzt wird wenn er nicht kürzbar ist
+       for i in range(0, dices):
+            fill(0)
+            textAlign(LEFT, CENTER)
+            text(u"Anzahl Anordnungsmöglichkeiten = " + str(q), 20, 545)
+            text("1/6", 20 + i * 45, 575)
+            if i > 0:
+                circle(12 + i * 45, 580, 5)
+            circle(12 + dices * 45, 580, 5)
+            text(q, 20 + dices * 45, 575)
+            text(u"Die Wahrscheinlichkeit beträgt...\n= " + str(q) + "/" + str(6 ** dices), 20, 625)
+        

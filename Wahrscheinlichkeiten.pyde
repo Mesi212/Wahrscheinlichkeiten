@@ -16,7 +16,7 @@ zahlen = []
 
 
 def setup():
-    size(800, 900)
+    size(800, 700)
     background(255)
     textSize(20)
     fill(0)
@@ -195,7 +195,7 @@ def draw():
             mode = "eingabe choose dice 2"
             
     # nur in diesem Modus, mit "selbst auswählen" und mind. 2 geworfenen Würfeln können diese Buttons gewählt werden
-    if mode == "eingabe choose dice 2" and throw_type == 2 and dices >= 2:
+    if mode == "eingabe choose dice 2" and dices >= 2:
         if (mouseButton == LEFT) and ((choose_dice_x - 20) < mouseX < (choose_dice_x + 20)) and ((choose_dice_y - 20 + shift_dice * 1) < mouseY < (choose_dice_y + 20 + shift_dice * 1)):
             global dices
             fill(255, 0, 0)
@@ -246,7 +246,7 @@ def draw():
             mode = "eingabe choose dice 3"
 
     # nur in diesem Modus, mit "selbst auswählen" und mind. 3 geworfenen Würfeln können diese Buttons gewählt werden
-    if mode == "eingabe choose dice 3" and throw_type == 2 and dices >= 3: 
+    if mode == "eingabe choose dice 3" and dices >= 3: 
         if (mouseButton == LEFT) and ((choose_dice_x - 20) < mouseX < (choose_dice_x + 20)) and ((choose_dice_y - 20 + shift_dice * 2) < mouseY < (choose_dice_y + 20 + shift_dice * 2)):
             global dices
             fill(255, 0, 0)
@@ -297,7 +297,7 @@ def draw():
             mode = "eingabe choose dice 4"
 
     # nur in diesem Modus, mit "selbst auswählen" und mind. 4 geworfenen Würfeln können diese Buttons gewählt werden
-    if mode == "eingabe choose dice 4" and throw_type == 2 and dices >= 4:
+    if mode == "eingabe choose dice 4" and dices >= 4:
         if (mouseButton == LEFT) and ((choose_dice_x - 20) < mouseX < (choose_dice_x + 20)) and ((choose_dice_y - 20 + shift_dice * 3) < mouseY < (choose_dice_y + 20 + shift_dice * 3)):
             global dices
             fill(255, 0, 0)
@@ -348,7 +348,7 @@ def draw():
             mode = "eingabe choose dice 5"
             
     # nur in diesem Modus, mit "selbst auswählen" und mind. 5 geworfenen Würfeln können diese Buttons gewählt werden
-    if mode == "eingabe choose dice 5" and throw_type == 2 and dices >= 5:
+    if mode == "eingabe choose dice 5" and dices >= 5:
         if (mouseButton == LEFT) and ((choose_dice_x - 20) < mouseX < (choose_dice_x + 20)) and ((choose_dice_y - 20 + shift_dice * 4) < mouseY < (choose_dice_y + 20 + shift_dice * 4)):
             global dices
             fill(255, 0, 0)
@@ -399,7 +399,7 @@ def draw():
             mode = "eingabe choose dice 6"
                 
     # nur in diesem Modus, mit "selbst auswählen" und 6 geworfenen Würfeln können diese Buttons gewählt werden
-    if mode == "eingabe choose dice 6" and throw_type == 2 and dices == 6:
+    if mode == "eingabe choose dice 6" and dices == 6:
         if (mouseButton == LEFT) and ((choose_dice_x - 20) < mouseX < (choose_dice_x + 20)) and ((choose_dice_y - 20 + shift_dice * 5) < mouseY < (choose_dice_y + 20 + shift_dice * 5)):
             global dices
             fill(255, 0, 0)
@@ -611,18 +611,16 @@ def draw():
         q = 720
     else:
         q = 60
-
-
-
     
     
     if mode == "show result" and order_type == 2:
         for i in range(0, dices):
             fill(0)
             textAlign(LEFT, CENTER)
-            text("1/6", 20 + i * 45, 555)
+            text(u"Anzahl Anordnungsmöglichkeiten = " + str(q), 20, 545)
+            text("1/6", 20 + i * 45, 575)
             if i > 0:
-                circle(12 + i * 45, 560, 5)
-            circle(12 + dices * 45, 560, 5)
-            text(q, 20 + dices * 45, 555)    
-            text("Die Wahrscheinlichkeit ist...\n= " + str(q) + "/" + str(6 ** dices) + " = 1/" + str(6 ** dices / q), 20, 610)
+                circle(12 + i * 45, 580, 5)
+            circle(12 + dices * 45, 580, 5)
+            text(q, 20 + dices * 45, 575)    
+            text("Die Wahrscheinlichkeit ist...\n= " + str(q) + "/" + str(6 ** dices) + " = 1/" + str(6 ** dices / q), 20, 625)
